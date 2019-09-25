@@ -4,7 +4,7 @@ from multiprocessing import Pool as ProcessPool
 def some_function(num):
     print(str(num**2) + '\n')
 
-def run_threadpool(list_of_args, threads):
+def run_threadpool(some_function, list_of_args, threads):
     pool = ThreadPool(threads)
     #pass the function that we will be multithreading along with args per thread
     results = pool.map(some_function, list_of_args)
@@ -13,7 +13,7 @@ def run_threadpool(list_of_args, threads):
     pool.join()
     return results
 
-def run_processpool(list_of_args, threads):
+def run_processpool(some_function, list_of_args, threads):
     pool = ProcessPool(threads)
     #pass the function that we will be multiprocessing along with args per process
     results = pool.map(some_function, list_of_args)
